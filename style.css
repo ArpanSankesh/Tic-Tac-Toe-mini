@@ -3,7 +3,7 @@
 :root{
     --accent-color:#F4CE14;
     --accent2-color:#2c6ce4;
-    --backgeound-color:#212845;
+    --background-color:#212845;
     --font-color:#fefefb;
 }
 
@@ -22,9 +22,51 @@ body{
 .wrapper{
     width: 100%;
     height: 100vh;
-    background-color: var(--backgeound-color);
+    background-color: var(--background-color);
+    padding: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3vw;
+}
+
+.heading{
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 3rem;
 }
 
 .game-board{
-    width: ;
+    width: 500px ;
+    height: 500px;
+    /* background-color: var(--accent-color); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
+
+.box{
+    width: 162px;
+    height: 162px;
+    border-bottom:3px solid var(--accent2-color);
+    border-right:3px solid var(--accent2-color);
+    outline: none;
+    background-color: var(--background-color);
+}
+
+.box:nth-child(3n){
+    border-right:none ;
+}
+
+.box:nth-child(6) ~ .box{
+    border-bottom: none ;
+}
+
+
+
+
+
+
