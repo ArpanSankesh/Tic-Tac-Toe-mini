@@ -77,8 +77,8 @@ body{
     border: none;
     background-color: var(--accent-color);
     font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--font-color);
+    font-weight: 900;
+    color:#000;
     cursor: pointer;
 }
 
