@@ -53,6 +53,12 @@ body{
     outline: none;
     background-color: var(--background-color);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--font-color);
 }
 
 .box:nth-child(3n){
