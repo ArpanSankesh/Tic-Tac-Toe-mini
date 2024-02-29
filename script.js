@@ -35,10 +35,10 @@ const checkWin = () => {
 const checkTie = () => {
     let boxfilled = 0;
     boxes.forEach(box => {
-        if(box.innerHTML = "");
+        if(box.innerHTML === "");
         boxfilled++
     })
-    return boxfilled = 0 && !checkWin();
+    return boxfilled === 0 && !checkWin();
 }
 
 boxes.forEach((box) => {
