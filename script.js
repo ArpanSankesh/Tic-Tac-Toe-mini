@@ -1,6 +1,8 @@
 let boxes = document.querySelectorAll(".box")
 let heading = document.querySelector(".heading");
 let resetBtn = document.querySelector(".reset-btn");
+let scoreBoard = document.querySelector(".score-Board");
+let scoreBoard = document.querySelector(".score-Board");
 
 let turn = "X";
 
