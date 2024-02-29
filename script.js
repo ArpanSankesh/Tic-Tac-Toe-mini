@@ -1,4 +1,5 @@
-let boxes = document.querySelectorAll(".box");
+let boxes = document.querySelectorAll(".box")
+let heading = document.querySelector(".heading");
 let resetBtn = document.querySelector(".reset-btn");
 
 let turn = "X";
@@ -35,27 +36,46 @@ const checkWin = () => {
 const checkTie = () => {
     let boxfilled = 0;
     boxes.forEach(box => {
-        if(box.innerHTML === "");
+        if(box.innerHTML === ""){
         boxfilled++
+      }
     })
     return boxfilled === 0 && !checkWin();
+};
+
+const handleClickes = (e) => {
+  if (e.target.innerHTML === "") {
+    e.target.innerHTML = turn;
+    if (checkWin()) {
+      heading.innerHTML = `winner is ${turn}`;
+      disabled()
+    }
+    else if(checkTie()) {
+      heading.innerHTML = "DRAW"
+      disabled()
+    }
+    else{
+      turn = changeTurn();
+    }
+    
+  }
 }
 
-boxes.forEach((box) => {
-  box.addEventListener("click", function () {
-    if (box.innerHTML === "") {
-      box.innerHTML = turn;
-      if (checkWin()) {
-        console.log(`winner is ${turn}`);
-      }
-      else if(checkTie()) {
-        console.log('draw guys');
-      };
-      turn = changeTurn();
-      
-    }
-  });
+boxes.forEach(box => {
+  box.addEventListener("click", handleClickes);
 });
+
+const disabled = () => {
+  boxes.forEach(box => {
+    box.removeEventListener("click", handleClickes);
+  })
+}
+
+
+
+
+
+
 
 // const resetGame = () => {
 //     boxes.forEach((box) => {
