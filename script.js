@@ -2,7 +2,9 @@ let boxes = document.querySelectorAll(".box")
 let heading = document.querySelector(".heading");
 let resetBtn = document.querySelector(".reset-btn");
 let scoreBoard = document.querySelector(".score-Board");
-let scoreBoard = document.querySelector(".score-Board");
+let gameBoard = document.querySelector(".game-board");
+let winMsg = document.querySelector(".container h1");
+let newGameBtn = document.querySelector(".new-game");
 
 let turn = "X";
 
@@ -49,12 +51,18 @@ const handleClickes = (e) => {
   if (e.target.innerHTML === "") {
     e.target.innerHTML = turn;
     if (checkWin()) {
-      heading.innerHTML = `winner is ${turn}`;
+      winMsg.innerHTML = `Player ${turn} Won`;
+      scoreBoard.style.opacity = 1;
+      gameBoard.classList.add('pointer-event');
+      scoreBoard.style.pointerEvent = 'auto'
       disabled()
     }
     else if(checkTie()) {
-      heading.innerHTML = "DRAW"
+      winMsg.innerHTML = "DRAW"
       disabled()
+      scoreBoard.style.opacity = 1;
+      gameBoard.classList.add('pointer-event')
+      scoreBoard.style.pointerEvent = 'auto'
     }
     else{
       turn = changeTurn();
@@ -73,18 +81,28 @@ const disabled = () => {
   })
 }
 
+const resetGame = () => {
+    boxes.forEach((box) => {
+       box.innerHTML = '';
+      });
+      
+}
+
+resetBtn.addEventListener('click', resetGame);
+
+const newGame = () => {
+    boxes.forEach((box) => {
+       box.innerHTML = '';
+       scoreBoard.style.opacity = 1;
+      gameBoard.classList.remove('pointer-event');
+      });
+      
+}
+
+newGameBtn.addEventListener('click', newGame);
 
 
 
 
 
 
-// const resetGame = () => {
-//     boxes.forEach((box) => {
-//         box.addEventListener("click", function () {
-//          box.innerHTML = "";
-//         });
-//       });
-// }
-
-// resetBtn.addEventListener('click', resetGame);
