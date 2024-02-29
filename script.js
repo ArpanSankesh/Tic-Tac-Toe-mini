@@ -1,4 +1,4 @@
-let boxes = document.querySelectorAll(".box")
+let boxes = document.querySelectorAll(".box");
 let heading = document.querySelector(".heading");
 let resetBtn = document.querySelector(".reset-btn");
 let scoreBoard = document.querySelector(".score-Board");
@@ -13,8 +13,10 @@ const changeTurn = () => {
 };
 
 const startGame = () => {
-   handleClickes()
-}
+  boxes.forEach((box) => {
+    box.addEventListener("click", handleClickes);
+  });
+};
 
 const checkWin = () => {
   const winPattern = [
@@ -42,13 +44,13 @@ const checkWin = () => {
 };
 
 const checkTie = () => {
-    let boxfilled = 0;
-    boxes.forEach(box => {
-        if(box.innerHTML === ""){
-        boxfilled++
-      }
-    })
-    return boxfilled === 0 && !checkWin();
+  let boxfilled = 0;
+  boxes.forEach((box) => {
+    if (box.innerHTML === "") {
+      boxfilled++;
+    }
+  });
+  return boxfilled === 0 && !checkWin();
 };
 
 const handleClickes = (e) => {
@@ -57,59 +59,45 @@ const handleClickes = (e) => {
     if (checkWin()) {
       winMsg.innerHTML = `Player ${turn} Won`;
       scoreBoard.style.opacity = 1;
-      scoreBoard.style.pointerEvents = 'auto'
-      gameBoard.classList.add('pointer-event');
-      disabled()
-    }
-    else if(checkTie()) {
-      winMsg.innerHTML = "DRAW"
-      disabled()
+      scoreBoard.style.pointerEvents = "auto";
+      gameBoard.classList.add("pointer-event");
+      disabled();
+    } else if (checkTie()) {
+      winMsg.innerHTML = "DRAW";
+      disabled();
       scoreBoard.style.opacity = 1;
-      scoreBoard.style.pointerEvents = 'auto'
-      gameBoard.classList.add('pointer-event')
-    }
-    else{
+      scoreBoard.style.pointerEvents = "auto";
+      gameBoard.classList.add("pointer-event");
+    } else {
       turn = changeTurn();
     }
-    
   }
-}
-
-boxes.forEach(box => {
-  box.addEventListener("click", handleClickes);
-});
+};
 
 const disabled = () => {
-  boxes.forEach(box => {
+  boxes.forEach((box) => {
     box.removeEventListener("click", handleClickes);
-  })
-}
+  });
+};
 
 const resetGame = () => {
-    boxes.forEach((box) => {
-       box.innerHTML = '';
-      });
-      
-}
+  boxes.forEach((box) => {
+    box.innerHTML = "";
+  });
+};
 
-resetBtn.addEventListener('click', resetGame);
-
+resetBtn.addEventListener("click", resetGame);
 
 const newGame = () => {
-    boxes.forEach((box) => {
-       box.innerHTML = '';
-       scoreBoard.style.opacity = 0;
-      gameBoard.classList.remove('pointer-event');
-      scoreBoard.style.pointerEvents = 'none'
-      });
-      startGame()
-      
-}
+  boxes.forEach((box) => {
+    box.innerHTML = "";
+    scoreBoard.style.opacity = 0;
+    gameBoard.classList.remove("pointer-event");
+    scoreBoard.style.pointerEvents = "none";
+  });
+  startGame();
+};
 
-newGameBtn.addEventListener('click', newGame);
+newGameBtn.addEventListener("click", newGame);
 
-
-startGame()
-
-
-
+startGame();
