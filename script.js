@@ -12,6 +12,10 @@ const changeTurn = () => {
   return turn === "X" ? "O" : "X";
 };
 
+const startGame = () => {
+   handleClickes()
+}
+
 const checkWin = () => {
   const winPattern = [
     [0, 1, 2],
@@ -53,16 +57,16 @@ const handleClickes = (e) => {
     if (checkWin()) {
       winMsg.innerHTML = `Player ${turn} Won`;
       scoreBoard.style.opacity = 1;
+      scoreBoard.style.pointerEvents = 'auto'
       gameBoard.classList.add('pointer-event');
-      scoreBoard.style.pointerEvent = 'auto'
       disabled()
     }
     else if(checkTie()) {
       winMsg.innerHTML = "DRAW"
       disabled()
       scoreBoard.style.opacity = 1;
+      scoreBoard.style.pointerEvents = 'auto'
       gameBoard.classList.add('pointer-event')
-      scoreBoard.style.pointerEvent = 'auto'
     }
     else{
       turn = changeTurn();
@@ -90,19 +94,22 @@ const resetGame = () => {
 
 resetBtn.addEventListener('click', resetGame);
 
+
 const newGame = () => {
     boxes.forEach((box) => {
        box.innerHTML = '';
-       scoreBoard.style.opacity = 1;
+       scoreBoard.style.opacity = 0;
       gameBoard.classList.remove('pointer-event');
+      scoreBoard.style.pointerEvents = 'none'
       });
+      startGame()
       
 }
 
 newGameBtn.addEventListener('click', newGame);
 
 
-
+startGame()
 
 
 
