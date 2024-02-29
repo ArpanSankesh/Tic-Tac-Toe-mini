@@ -26,7 +26,7 @@ body{
     background-color: var(--background-color);
     display: flex;
     justify-content: center;
-    
+    /* opacity: 0; */
 }
 
 .container{
@@ -86,7 +86,7 @@ body{
     border-bottom: none ;
 }
 
-.reset-btn{
+.btn{
     width: 120px;
     height: 45px;
     border-radius: 0.5rem;
@@ -97,6 +97,14 @@ body{
     font-weight: 900;
     color:#000;
     cursor: pointer;
+}
+
+.new-game{
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width:600px) {
