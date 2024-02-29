@@ -7,17 +7,19 @@ let winMsg = document.querySelector(".container h1");
 let newGameBtn = document.querySelector(".new-game");
 
 let turn = "X";
-
+//changing the Turns
 const changeTurn = () => {
   return turn === "X" ? "O" : "X";
 };
 
+//starting the game
 const startGame = () => {
   boxes.forEach((box) => {
     box.addEventListener("click", handleClickes);
   });
 };
 
+//Win Function
 const checkWin = () => {
   const winPattern = [
     [0, 1, 2],
@@ -30,6 +32,7 @@ const checkWin = () => {
     [6, 7, 8],
   ];
 
+  // Checking the win pattern
   for (pattern of winPattern) {
     let pos1 = boxes[pattern[0]].innerHTML;
     let pos2 = boxes[pattern[1]].innerHTML;
@@ -43,6 +46,7 @@ const checkWin = () => {
   return false;
 };
 
+// Checking for tie
 const checkTie = () => {
   let boxfilled = 0;
   boxes.forEach((box) => {
@@ -53,6 +57,7 @@ const checkTie = () => {
   return boxfilled === 0 && !checkWin();
 };
 
+// Handling the clickes
 const handleClickes = (e) => {
   if (e.target.innerHTML === "") {
     e.target.innerHTML = turn;
@@ -74,12 +79,14 @@ const handleClickes = (e) => {
   }
 };
 
+// Disabling the button after win or tie
 const disabled = () => {
   boxes.forEach((box) => {
     box.removeEventListener("click", handleClickes);
   });
 };
 
+// reseting the Board
 const resetGame = () => {
   boxes.forEach((box) => {
     box.innerHTML = "";
@@ -88,6 +95,7 @@ const resetGame = () => {
 
 resetBtn.addEventListener("click", resetGame);
 
+// New game
 const newGame = () => {
   boxes.forEach((box) => {
     box.innerHTML = "";
@@ -100,4 +108,5 @@ const newGame = () => {
 
 newGameBtn.addEventListener("click", newGame);
 
+// Calling the start Game function to start the game
 startGame();

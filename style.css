@@ -159,6 +159,9 @@ body{
         width: calc(350px / 3);
         height:calc(350px / 3);
     }
+    .container h1{
+        font-size: 3rem;
+    }
 
 }
 @media (max-width:300px) {
