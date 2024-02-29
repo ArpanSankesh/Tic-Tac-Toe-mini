@@ -19,7 +19,22 @@ body{
     height: 100%;
 }
 
+.score-Board{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    
+}
 
+.container{
+    width: 550px;
+    height: 100%;
+    background-color: red;
+    padding: 3rem 0;
+}
 
 .wrapper{
     width: 100%;
