@@ -26,8 +26,6 @@ body{
     background-color: var(--background-color);
     display: flex;
     justify-content: center;
-    opacity: 0;
-    pointer-events: none;
     transition: all 0.5s;
 }
 
